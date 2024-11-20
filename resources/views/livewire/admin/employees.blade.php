@@ -1,4 +1,4 @@
-<div class="container mx-auto p-8" x-data="{ openModal: false }">
+<div class="container mx-auto p-8" x-data="{ openModal : false}">
     <!-- Heading -->
     <div class="flex justify-between items-center mb-6">
         <h1 class="text-3xl font-semibold text-gray-800">Employee Management</h1>
@@ -45,39 +45,17 @@
         </table>
     </div>
 
-    <!-- Add New Employee Modal -->
-    <div x-show="openModal" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="fixed inset-0 flex justify-center items-center bg-gray-500 bg-opacity-50 z-50">
-        <div @click.away="openModal = false" class="bg-white rounded-lg p-8 w-96 shadow-lg">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Add New Employee</h2>
-            <form action="#" method="POST">
-                <div class="space-y-4">
-                    <!-- Name Input -->
-                    <div>
-                        <label for="name" class="block text-gray-700 font-medium">Name</label>
-                        <input type="text" id="name" name="name" class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent" placeholder="Enter employee name" required>
-                    </div>
-
-                    <!-- Email Input -->
-                    <div>
-                        <label for="email" class="block text-gray-700 font-medium">Email</label>
-                        <input type="email" id="email" name="email" class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent" placeholder="Enter employee email" required>
-                    </div>
-
-                    <!-- Role Input -->
-                    <div>
-                        <label for="role" class="block text-gray-700 font-medium">Role</label>
-                        <select id="role" name="role" class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent" required>
-                            <option value="admin">Admin</option>
-                            <option value="employee">Employee</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="mt-6 flex justify-end space-x-4">
-                    <button @click="openModal = false" type="button" class="bg-gray-300 text-gray-800 px-6 py-2 rounded-md hover:bg-gray-400 transition">Cancel</button>
-                    <button type="submit" class="bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition">Add Employee</button>
-                </div>
-            </form>
-        </div>
-    </div>
+    <x-model heading="Add New Employee">
+        <form action="#" method="POST">
+            <div class="space-y-4">
+                <x-form.input type="text" label="name" name="name" placeholder="enter employee name" />
+                <x-form.input type="email" label="email" name="email" placeholder="enter employee email" />
+                <x-form.select name="position" label="select position" options=""/>
+            </div>
+            <div class="mt-6 flex justify-end space-x-4">
+                <button @click="openModal = false" type="button" class="bg-gray-300 text-gray-800 px-6 py-2 rounded-md hover:bg-gray-400 transition">Cancel</button>
+                <button type="submit" class="bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition">Add Employee</button>
+            </div>
+        </form>
+    </x-model>
 </div>

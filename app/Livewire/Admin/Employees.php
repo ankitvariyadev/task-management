@@ -8,15 +8,7 @@ use Livewire\Component;
 #[Layout("components.layouts.app")]
 class Employees extends Component
 {
-    public rules(): array
-    {
-        return [
-            "name"=> ["required","string","max:50"],
-            "email"=> ["required","string",""],
-        ];
-    }
-
-    public function storeOrUpdate() : void 
+    public function store() : void 
     {
         
     }

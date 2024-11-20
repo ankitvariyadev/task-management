@@ -34,60 +34,35 @@
                 </div>
 
                 <!-- Table with Sorting Icons -->
-                <table class="min-w-full table-auto">
-                    <thead class="bg-teal-600 text-white">
-                        <tr>
-                            <th class="px-4 py-2 text-left">Task
-                                <i class="fas fa-sort ml-2"></i> <!-- Sorting Icon -->
-                            </th>
-                            <th class="px-4 py-2 text-left">Assigned To
-                                <i class="fas fa-sort ml-2"></i> <!-- Sorting Icon -->
-                            </th>
-                            <th class="px-4 py-2 text-left">Status
-                                <i class="fas fa-sort ml-2"></i> <!-- Sorting Icon -->
-                            </th>
-                            <th class="px-4 py-2 text-left">Priority
-                                <i class="fas fa-sort ml-2"></i> <!-- Sorting Icon -->
-                            </th>
-                            <th class="px-4 py-2 text-left">Due Date
-                                <i class="fas fa-sort ml-2"></i> <!-- Sorting Icon -->
-                            </th>
-                            <th class="px-4 py-2 text-left">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="px-4 py-2">Task 1</td>
-                            <td class="px-4 py-2">John Doe</td>
-                            <td class="px-4 py-2">In Progress</td>
-                            <td class="px-4 py-2">High</td>
-                            <td class="px-4 py-2">2024-12-01</td>
-                            <td class="px-4 py-2">
-                                <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300">
-                                    <i class="fas fa-edit"></i> Edit
-                                </button>
-                                <button class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition duration-300">
-                                    <i class="fas fa-trash"></i> Delete
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-2">Task 2</td>
-                            <td class="px-4 py-2">Jane Smith</td>
-                            <td class="px-4 py-2">Completed</td>
-                            <td class="px-4 py-2">Medium</td>
-                            <td class="px-4 py-2">2024-11-20</td>
-                            <td class="px-4 py-2">
-                                <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300">
-                                    <i class="fas fa-edit"></i> Edit
-                                </button>
-                                <button class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition duration-300">
-                                    <i class="fas fa-trash"></i> Delete
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+               <x-table>
+                <x-slot name="tableHead">
+                    <x-table.tr>
+                        <x-table.th column="task">{{ __('Task') }}</x-table.th>
+                        <x-table.th>{{ __('AssignTo') }}</x-table.th>
+                        <x-table.th>{{ __('Status') }}</x-table.th>
+                        <x-table.th class="text-center">{{ __('Priority') }}</x-table.th>
+                        <x-table.th class="text-center">{{ __('Due Date') }}</x-table.th>
+                        <x-table.th class="text-center">{{ __('Action') }}</x-table.th>
+                    </x-table.tr>
+                </x-slot>
+                <x-slot name="tableBody">
+                    <x-table.tr>
+                        <x-table.td>Task 1</x-table.td>
+                        <x-table.td>John Doe</x-table.td>
+                        <x-table.td>In Progress</x-table.td>
+                        <x-table.td>High</x-table.td>
+                        <x-table.td>2024-12-01</x-table.td>
+                        <x-table.td>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
+                            <button class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition duration-300">
+                                <i class="fas fa-trash"></i> Delete
+                            </button>
+                        </x-table.td>
+                    </x-table.tr>
+                </x-slot>
+            </x-table>
             </div>
-        </div>      <!-- Dashboard Overview -->
+        </div>      
         
