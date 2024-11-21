@@ -87,6 +87,6 @@
 
         </div>
     </div>
-
+    <x-toaster-hub />
 </body>
 </html>
